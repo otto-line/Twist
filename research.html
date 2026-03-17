@@ -85,9 +85,10 @@
             background-color: #000;
             color: #fff;
         }
-
+        
         /* ── FOOTER ── */
         footer {
+            display: none;
             margin-top: 6rem;
             border-top: 1px solid #000;
             padding: 2rem 2rem 1.5rem;
@@ -122,6 +123,78 @@
             .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
         }
+        .research-table {
+            width: 100%;
+            margin: 3rem 0;
+            border-collapse: collapse;
+            font-family: 'UnionRegular', sans-serif;
+            font-size: 14px;
+        }
+
+        .research-table th {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid #000;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .research-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .research-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .research-table tbody tr:last-child td {
+            border-bottom: 1px solid #000;
+        }
+
+        /* ── RESEARCH KEY ── */
+        .research-key {
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 1.5rem;
+            margin: 2rem;
+            width: fit-content;
+            font-family: 'UnionRegular', sans-serif;
+            font-size: 12px;
+        }
+
+        .research-key h3 {
+            margin: 0 0 1rem 0;
+            font-family: 'UnionTwist', serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .research-key .key-close {
+            float: right;
+            cursor: pointer;
+            font-weight: bold;
+            opacity: 0.7;
+        }
+
+        .research-key .key-close:hover {
+            opacity: 1;
+        }
+
+        .key-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .key-code {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
     </style>
 </head>
 <body>
@@ -135,7 +208,42 @@
             <li><a href="cart.html">Cart <span id="cart-count"></span></a></li>
         </ul>
     </nav>
-    <main></main>
+    <main>
+        <div class="research-key" id="research-key">
+            <h3>Research & Development Key <span class="key-close" onclick="document.getElementById('research-key').style.display='none'">X</span></h3>
+            <div class="key-item">
+                <div class="key-code">EN-000</div>
+                <div>Entities - no.#</div>
+            </div>
+            <div class="key-item">
+                <div class="key-code">PA-000</div>
+                <div>Papers - no.#</div>
+            </div>
+            <div class="key-item">
+                <div class="key-code">DI-000</div>
+                <div>Dispatches - no.#</div>
+            </div>
+            <div class="key-item">
+                <div class="key-code">PR-000</div>
+                <div>Productions - no.#</div>
+            </div>
+        </div>
+
+        <table class="research-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Subject</th>
+                    <th>Tag</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="research-tbody">
+                <!-- Populated by JavaScript -->
+            </tbody>
+        </table>
+    </main>
+   
     <footer>
         <div class="footer-inner">
         <div class="footer-grid">
@@ -160,5 +268,24 @@
         </div>
     </footer>
     <script src="cart.js"></script>
+    <script>
+        // Load research data and populate table
+        fetch('research-data.json')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('research-tbody');
+                data.projects.forEach(project => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${project.title}</td>
+                        <td>${project.subject}</td>
+                        <td>${project.tag}</td>
+                        <td>${project.date}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error loading research data:', error));
+    </script>
 </body>
 </html>
