@@ -1,0 +1,343 @@
+%!Adobe-FontList 1.25
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:.AppleColorEmojiUI
+FamilyName:.Apple Color Emoji UI
+StyleName:Regular
+MenuName:.Apple Color Emoji UI
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:.Apple Color Emoji UI
+WritingScript:Emoji
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/Apple Color Emoji.ttc
+TTCOffset:380
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:188589668
+FileModTime:785492277
+NameArray:0,Mac,4,.Apple Color Emoji UI
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/AdobeFnt25.lst
+FileLength:7781
+FileModTime:792325973
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:EmojiOneColor
+FamilyName:EmojiOne
+StyleName:Color
+MenuName:EmojiOne
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:EmojiOne
+WritingScript:Emoji
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/EmojiOneColor.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:yes
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:4232712
+FileModTime:787748652
+NameArray:0,Mac,4,EmojiOne
+NameArray:0,Win,1,EmojiOne
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSans-ExtraLight
+FamilyName:Noto Sans
+StyleName:ExtraLight
+MenuName:Noto Sans ExtraLight
+StyleBits:0
+WeightClass:200
+WidthClass:5
+AngleClass:0
+FullName:Noto Sans ExtraLight
+WritingScript:Roman
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/NotoSans-ExtraLight 2.ttf
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:559028
+FileModTime:383616000
+NameArray:0,Win,1,Noto Sans ExtraLight
+NameArray:0,Win,16,Noto Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSans-Light
+FamilyName:Noto Sans
+StyleName:Light
+MenuName:Noto Sans Light
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Noto Sans Light
+WritingScript:Roman
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/NotoSans-Light 2.ttf
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:554712
+FileModTime:383616000
+NameArray:0,Win,1,Noto Sans Light
+NameArray:0,Win,16,Noto Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansArabic-Regular
+FamilyName:Noto Sans Arabic
+StyleName:Regular
+MenuName:Noto Sans Arabic
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Noto Sans Arabic Regular
+WritingScript:Roman
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/NotoSansArabic-Regular.ttf
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:194176
+FileModTime:779835306
+NameArray:0,Win,1,Noto Sans Arabic
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansArabicCondensed-Regular
+FamilyName:Noto Sans Arabic Condensed
+StyleName:Regular
+MenuName:Noto Sans Arabic Condensed
+StyleBits:0
+WeightClass:400
+WidthClass:3
+AngleClass:0
+FullName:Noto Sans Arabic Condensed Regular
+WritingScript:Roman
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/NotoSansArabic_Condensed-Regular.ttf
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:194384
+FileModTime:779835306
+NameArray:0,Win,1,Noto Sans Arabic Condensed
+NameArray:0,Win,16,Noto Sans Arabic Condensed
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansHebrew-Thin
+FamilyName:Noto Sans Hebrew
+StyleName:Thin
+MenuName:Noto Sans Hebrew Thin
+FamilyPrefix:NotoSansHebrew
+StyleBits:0
+WeightClass:100
+WidthClass:5
+AngleClass:0
+FullName:Noto Sans Hebrew Thin
+WritingScript:Roman
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/NotoSansHebrew-VariableFont_wdth,wght.ttf
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:TrueTypeVariableFont
+FileLength:112332
+FileModTime:778723714
+NameArray:0,Win,1,Noto Sans Hebrew Thin
+NameArray:0,Win,16,Noto Sans Hebrew
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansOldPersian-Regular
+FamilyName:Noto Sans Old Persian
+StyleName:Regular
+MenuName:Noto Sans OldPersian
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Noto Sans Old Persian Regular
+WritingScript:Roman
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/NotoSansOldPersian-Regular.ttf
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:13180
+FileModTime:785492277
+NameArray:0,Win,1,Noto Sans OldPersian
+NameArray:0,Win,16,Noto Sans Old Persian
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:TimesNewRomanPS-BoldMT
+FamilyName:Times New Roman
+StyleName:Bold
+MenuName:Times New Roman
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Times New Roman Bold
+WritingScript:Roman
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/Times New Roman Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:832472
+FileModTime:785492277
+NameArray:0,Mac,4,Times New Roman Bold
+NameArray:0,Win,1,Times New Roman
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:TimesNewRomanPSMT
+FamilyName:Times New Roman
+StyleName:Regular
+MenuName:Times New Roman
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Times New Roman
+WritingScript:Roman
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/Times New Roman.ttf
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:824920
+FileModTime:785492277
+NameArray:0,Mac,4,Times New Roman
+NameArray:0,Win,1,Times New Roman
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Union-Regular
+FamilyName:Union
+StyleName:Regular
+MenuName:Union
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Union Regular
+WritingScript:Roman
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/Union-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:46580
+FileModTime:748327855
+NameArray:0,Mac,4,Union Regular
+NameArray:0,Win,1,Union
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Union_Twist_Semibold
+FamilyName:Union_Twist_Semibold
+StyleName:Semibold
+MenuName:Union_Twist_Semibold Semibold
+StyleBits:0
+WeightClass:600
+WidthClass:5
+AngleClass:0
+FullName:Union_Twist_Semibold
+WritingScript:Roman
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/Union_Twist_Semibold-Semibold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:34152
+FileModTime:748327845
+NameArray:0,Mac,4,Union_Twist_Semibold
+NameArray:0,Win,1,Union_Twist_Semibold Semibold
+NameArray:0,Win,16,Union_Twist_Semibold
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:AppleColorEmoji
+FamilyName:Apple Color Emoji
+StyleName:Regular
+MenuName:Apple Color Emoji
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Apple Color Emoji
+WritingScript:Emoji
+OutlineFileName:/Users/paulinehill/Documents/2026/Twist/09-02-26/leaked_doc09.02/Document fonts/Apple Color Emoji.ttc
+TTCOffset:32
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:188589668
+FileModTime:785492277
+NameArray:0,Mac,4,Apple Color Emoji
+%EndFont
+

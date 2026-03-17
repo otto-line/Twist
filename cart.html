@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart — Twist</title>
+    <style>
+        @font-face {
+            font-family: 'UnionTwist';
+            src: url('Document fonts/Union_Twist_Semibold-Semibold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'UnionRegular';
+            src: url('Document fonts/Union-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #bfbfbf;
+            font-family: 'UnionRegular', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'UnionTwist', serif;
+        }
+
+        /* ── NAV ── */
+        nav {
+            padding: 5px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, max-content);
+            gap: 2px;
+            counter-reset: nav-counter -1;
+        }
+
+        nav ul li {
+            counter-increment: nav-counter;
+        }
+
+        nav ul li a {
+            display: inline-block;
+            background-color: #d9d9d9;
+            padding: 0.35rem 0.6rem;
+            text-decoration: none;
+            color: #000;
+            font-family: 'UnionRegular', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        nav ul li a::after {
+            content: " [" counter(nav-counter, decimal-leading-zero) ".]";
+            opacity: 0.9;
+        }
+
+        nav ul li a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* ── CART PAGE ── */
+        main {
+            max-width: 720px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .cart-heading {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cart-empty {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.5;
+        }
+
+        /* ── LINE ITEMS ── */
+        .cart-item {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 1.25rem;
+            align-items: center;
+            border-bottom: 1px solid #000;
+            padding: 1rem 0;
+        }
+
+        .cart-item img {
+            width: 80px;
+            display: block;
+        }
+
+        .cart-item-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .cart-item-title {
+            font-family: 'UnionTwist', serif;
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        .cart-item-vol {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+
+        .cart-item-qty {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .cart-item-qty button {
+            background: #d9d9d9;
+            border: none;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .cart-item-qty button:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .cart-item-price {
+            font-family: 'UnionTwist', serif;
+            font-size: 1rem;
+            text-align: right;
+        }
+
+        .cart-item-remove {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.4;
+            font-family: inherit;
+            text-align: right;
+            margin-top: 0.25rem;
+        }
+
+        .cart-item-remove:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* ── TOTALS ── */
+        .cart-totals {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+
+        .cart-total-row {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .cart-total-row.grand {
+            font-family: 'UnionTwist', serif;
+            font-size: 1.4rem;
+            letter-spacing: 0;
+            text-transform: none;
+            border-top: 1px solid #000;
+            padding-top: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .btn-checkout {
+            margin-top: 1.5rem;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 2.5rem;
+            font-family: 'UnionRegular', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .btn-checkout:hover {
+            background-color: #333;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            margin-top: 6rem;
+            border-top: 1px solid #000;
+            padding: 2rem 2rem 1.5rem;
+            font-family: 'UnionRegular', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .footer-inner { width: 60%; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col p { margin: 0; line-height: 1.8; }
+        .footer-col a { color: inherit; text-decoration: none; }
+        .footer-col a:hover { background-color: #000; color: #fff; }
+
+        .footer-bottom {
+            border-top: 1px solid #000;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html">Cart <span id="cart-count"></span></a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <p class="cart-heading">Your Cart</p>
+        <div id="cart-items"></div>
+        <div id="cart-totals" class="cart-totals" style="display:none;">
+            <div class="cart-total-row">
+                <span>Shipping</span>
+                <span>Calculated at checkout</span>
+            </div>
+            <div class="cart-total-row grand">
+                <span>Total</span>
+                <span id="cart-total-price"></span>
+            </div>
+            <button class="btn-checkout" onclick="location.href='checkout.html'">Proceed to Checkout</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p><a href="#">Shipping + Returns</a></p>
+                    <p><a href="#">Warranty</a></p>
+                </div>
+                <div class="footer-col">
+                    <p>Location</p>
+                    <p>London, UK</p>
+                </div>
+                <div class="footer-col">
+                    <p>Contact</p>
+                    <p><a href="mailto:info@TWST.com">info@TWST.com</a></p>
+                    <p><a href="#">@TWST</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>20260315 &copy; TWIST</p>
+            <p>All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        function renderCart() {
+            const cart = getCart();
+            const container = document.getElementById('cart-items');
+            const totalsEl = document.getElementById('cart-totals');
+            const totalPrice = document.getElementById('cart-total-price');
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="cart-empty">Your cart is empty.</p>';
+                totalsEl.style.display = 'none';
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="cart-item-info">
+                        <span class="cart-item-title">${item.name}</span>
+                        <span class="cart-item-vol">${item.vol}</span>
+                        <div class="cart-item-qty">
+                            <button onclick="changeQty('${item.id}', ${item.qty - 1})">−</button>
+                            <span>${item.qty}</span>
+                            <button onclick="changeQty('${item.id}', ${item.qty + 1})">+</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="cart-item-price">£${(item.price * item.qty).toFixed(2)}</div>
+                        <button class="cart-item-remove" onclick="removeItem('${item.id}')">Remove</button>
+                    </div>
+                </div>
+            `).join('');
+
+            totalPrice.textContent = `£${getCartTotal().toFixed(2)}`;
+            totalsEl.style.display = 'flex';
+        }
+
+        function changeQty(id, qty) {
+            updateQty(id, qty);
+            renderCart();
+        }
+
+        function removeItem(id) {
+            removeFromCart(id);
+            renderCart();
+        }
+
+        renderCart();
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twist</title>
+    <style>
+        @font-face {
+            font-family: 'UnionTwist';
+            src: url('Document fonts/Union_Twist_Semibold-Semibold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'NotoCondensed';
+            src: url('Document fonts/NotoSans-ExtraLight 2.ttf') format('truetype');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'UnionRegular';
+            src: url('Document fonts/Union-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #bfbfbf;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'UnionTwist', serif;
+        }
+
+        /* ── NAV ── */
+        nav {
+            padding: 5px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 5px;
+            counter-reset: nav-counter -1;
+        }
+
+        nav ul li {
+            counter-increment: nav-counter;
+        }
+
+        nav ul li:last-child {
+            margin-left: auto;
+            counter-increment: none;
+        }
+
+        nav ul li a {
+            display: inline-block;
+            background-color: #d9d9d9;
+            padding: 0.35rem 0.6rem;
+            text-decoration: none;
+            color: #000;
+            font-family: 'UnionRegular', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        nav ul li a::after {
+            content: " [" counter(nav-counter, decimal-leading-zero) ".]";
+            opacity: 0.9;
+        }
+
+        nav ul li:last-child a::after {
+            content: "";
+        }
+
+        nav ul li a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* ── LAYOUT ── */
+        main {
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+            width: 82.333%;
+        }
+
+        .product-card-wrapper {
+            position: relative;
+            width: max-content;
+            margin: 3rem auto;
+        }
+
+        .product-card {
+            width: 280px;
+        }
+
+        .product-card .cover {
+            width: 100%;
+        }
+
+        .product-card .cover img {
+            width: 100%;
+            display: block;
+        }
+
+        .product-card p {
+            font-family: 'NotoCondensed', sans-serif;
+            line-height: 0.9;
+            font-size: 10px;
+            max-width: 220px;
+        }
+
+        .product-card button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-family: 'NotoCondensed', sans-serif;
+            font-weight: 200;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+            text-decoration: underline;
+            color: #000;
+        }
+
+        .product-card button::before { content: '[ '; }
+        .product-card button::after  { content: ' ]'; }
+
+        /* ── RENDER / IMAGE DISPLAY ── */
+        .render {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .render.active {
+            opacity: 1;
+        }
+
+        /* ── IMAGE GRID ── */
+        .image-grid {
+            position: absolute;
+            right: -620px;
+            top: 0;
+            width: 600px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            opacity: 0;
+            transition: opacity 0.1s ease;
+            pointer-events: none;
+        }
+
+        .image-grid.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            margin-top: 3rem;
+            border-top: 1px solid #000;
+            padding: 2rem 2rem 0.5rem;
+            font-family: 'UnionRegular', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .footer-inner {
+            width: 50%;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col p {
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        .footer-col a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #000;
+            padding-top: 0.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 640px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+
+        aside {
+            z-index: 55;
+            width: 30%;
+            position: fixed;
+        }
+
+        aside p {
+            font-family: 'NotoCondensed', sans-serif;
+            line-height: 1.2;
+            font-size: 12px;
+            max-width: 300px;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="research.html">Research & Development</a></li>
+            <li><a href="cart.html">Cart <span id="cart-count"></span></a></li>
+        </ul>
+        <aside>
+            <p>TWIST© is an investigative research office. </p>
+            <p>We deploy print, digital and scenographic media in order to examine and dramatise 21st century tectonics. </p> 
+            <p>TWIST Magazine is our Research & Development vehicle, a transmission for the languages and materials of contemporary culture </p>
+
+        </aside>
+    </nav>
+    <main>
+        <div class="render "></div>
+
+        <div class="product-card-wrapper">
+        <div class="product-card" id="barragan">
+            <div class="cover">
+                <img src="Screenshot 2026-03-15 at 22.25.05.png" alt="TWIST TARGET Vol 001">
+            </div>
+            <h2>BARRAGAN</h2>
+            <p data-image="images/angle1.jpg">Model / 型号：<br>
+TWT-024.LEAKED.DOC <br>
+Serial /序列号 LDN-12.52.9.25 <br>
+Fabrication Code/ 制造代码：<br>
+07F-LUX/RE</p>
+<p data-image="images/angle2.jpg">Node / TA: TW-LUX-07A <br>
+PROC_ID /处理编号：<br>
+E5.MC8407<br>
+RUN_CYCLE/ 运行周期：<br>
+09/25-ALPHA<br>
+REF/参考：02.01.0008.45</p>
+
+<p data-image="images/angle3.jpg">SYS_INST / 系统安装：<br>
+2217 25.48<br>
+FABR_CODE/生产批号：<br>
+A1/B3/C5<br>
+S/N / 序列号：000.2217.2548.92<br>
+VOLT_IN / 输入电压：3.8V土 </p>
+            <button onclick="addToCart({ id: 'twist-target-vol-001', name: 'Twist Target', vol: 'Vol. 001', price: 12.00, image: 'Screenshot 2026-03-15 at 22.25.05.png' })">buy now</button>
+        </div>
+        <div class="image-grid">
+            <img src="iamges/COVER.png" alt="Cover">
+            <img src="iamges/PAG 8-9.png" alt="Pages 8-9">
+            <img src="iamges/PAG6-7.png" alt="Pages 6-7">
+        </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <p><a href="#">Shipping + Returns</a></p>
+                <p><a href="#">Warranty</a></p>
+            </div>
+            <div class="footer-col">
+                <p>Location</p>
+                <p>London, UK</p>
+            </div>
+            <div class="footer-col">
+                <p>Contact</p>
+                <p><a href="mailto:sam@twist-mag.com">info@twist-mag.com</a></p>
+                <p><a href="https://www.instagram.com/twist_mag?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D">@TWST</a></p>
+            </div>
+        </div>
+        </div>
+        <div class="footer-bottom">
+            <p>20260315 &copy; TWIST</p>
+            <p>All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        // Image grid hover display
+        const imageGrid = document.querySelector('.image-grid');
+        const coverImage = document.querySelector('.product-card .cover');
+
+        if (coverImage && imageGrid) {
+            coverImage.addEventListener('mouseenter', () => {
+                imageGrid.classList.add('active');
+            });
+
+            coverImage.addEventListener('mouseleave', () => {
+                imageGrid.classList.remove('active');
+            });
+        }
+    </script>
+</body>
+</html>
